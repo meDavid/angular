@@ -38,7 +38,7 @@ export class Parser {
       interpolationConfig: InterpolationConfig = DEFAULT_INTERPOLATION_CONFIG): ASTWithSource {
     this._checkNoInterpolation(input, location, interpolationConfig);
     const sourceToLex = this._stripComments(input);
-    const tokens = this._lexer.tokenize(this._stripComments(input));
+    const tokens = this._lexer.tokenize(sourceToLex);
     const ast = new _ParseAST(
                     input, location, tokens, sourceToLex.length, true, this.errors,
                     input.length - sourceToLex.length)
